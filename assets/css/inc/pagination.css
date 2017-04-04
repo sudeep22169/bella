@@ -1,0 +1,64 @@
+@import url('http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900');
+@import url('http://fonts.googleapis.com/css?family=Vidaloka');
+/* Pagination
+/* ========================================================================== */
+.pagination-wrapper {
+  border-top: solid 1px #e9e9e9;
+  margin-top: 30px;
+  padding-top: 30px;
+  line-height: 0;
+}
+.pagination {
+  margin: -10px 0 0 0;
+  font-size: 12px;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.pagination > li > a {
+  font-weight: 700;
+  background-color: transparent;
+  color: #232323;
+  margin: 10px 10px 0 0;
+  padding: 7px 15px 7px 15px;
+}
+.pagination > li:first-child > a,
+.pagination > li:first-child > span {
+  border-radius: 0;
+  background-color: transparent;
+}
+.pagination > li:last-child > a,
+.pagination > li:last-child > span {
+  border-radius: 0;
+  background-color: transparent;
+}
+.pagination > li > a,
+.pagination > li > span {
+  border: solid 3px rgba(35, 35, 35, 0.1);
+}
+.pagination > li > a:hover,
+.pagination > li > span:hover,
+.pagination > li > a:focus,
+.pagination > li > span:focus {
+  border-color: #00b16a;
+  background-color: #00b16a;
+  color: #ffffff;
+}
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+  background-color: rgba(35, 35, 35, 0.1);
+  border-color: transparent;
+  color: #232323;
+}
+.pagination > .disabled > span,
+.pagination > .disabled > span:hover,
+.pagination > .disabled > span:focus,
+.pagination > .disabled > a,
+.pagination > .disabled > a:hover,
+.pagination > .disabled > a:focus {
+  color: #232323;
+  background-color: transparent;
+}

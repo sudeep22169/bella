@@ -1,0 +1,81 @@
+@import url('http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900');
+@import url('http://fonts.googleapis.com/css?family=Vidaloka');
+/* Layout
+/* ========================================================================== */
+.content-area {
+  padding-bottom: 40px;
+}
+.widget *:last-child {
+  margin-bottom: 0;
+}
+.content .widget + .widget,
+.sidebar .widget + .widget,
+.footer .widget + .widget {
+  margin-top: 30px;
+}
+.container.full-width {
+  width: 100%;
+  max-width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+.row {
+  margin-top: -30px;
+}
+.row + .row {
+  margin-top: 0;
+}
+.row div[class*="col-"],
+.row aside[class*="col-"] {
+  margin-top: 30px;
+}
+.row div[class*="col-"]:after,
+.row aside[class*="col-"]:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.boxed .wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
+}
+/* Page section block
+/* ========================================================================== */
+.page-section {
+  position: relative;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  overflow: hidden;
+  /* small devices */
+}
+.page-section.md-padding {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.page-section.sm-padding {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.page-section.no-padding {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.page-section.no-padding-top {
+  padding-top: 0;
+}
+.page-section.no-padding-bottom {
+  padding-bottom: 0;
+}
+.page-section.no-bottom-space {
+  margin-bottom: -40px;
+}
+.page-section.light {
+  background-color: #eef0f5;
+}
+.page-section.image {
+  background: url(../img/preview/page-section-image.jpg) center top no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}

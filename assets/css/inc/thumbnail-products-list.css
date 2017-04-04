@@ -1,0 +1,101 @@
+@import url('http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900');
+@import url('http://fonts.googleapis.com/css?family=Vidaloka');
+/* Products list view
+/* ========================================================================== */
+.products.list .thumbnail + .thumbnail {
+  margin-top: 30px;
+}
+.products.list .thumbnail .caption {
+  padding-top: 0;
+}
+.products.list .thumbnail .caption-title {
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+.products.list .thumbnail .reviews {
+  color: #232323;
+}
+.products.list .thumbnail .reviews:hover {
+  color: #00b16a;
+}
+.products.list .thumbnail .overflowed {
+  margin-top: 5px;
+}
+.products.list .thumbnail .availability {
+  float: left;
+}
+.products.list .thumbnail .availability strong {
+  color: #00b16a;
+}
+.products.list .thumbnail .price {
+  float: right;
+  margin-bottom: 0;
+}
+.products.list .thumbnail .caption-text {
+  font-size: 14px;
+  line-height: 18px;
+  padding: 15px 0;
+  margin: 15px 0;
+  border-top: solid 1px rgba(35, 35, 35, 0.1);
+  border-bottom: solid 1px rgba(35, 35, 35, 0.1);
+}
+.products.list .thumbnail .btn-wish-list {
+  margin-left: 10px;
+  margin-right: 0;
+}
+.products.wall {
+  width: 1980px;
+  height: 550px;
+  margin-top: -10px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+.products.wall .isotope-item {
+  margin-top: 10px;
+  margin-right: 10px;
+  float: left;
+}
+.products.wall .col {
+  margin-right: 10px;
+  float: left;
+}
+.products.wall .w270 {
+  width: 270px;
+  padding: 0;
+}
+.products.wall .w370 {
+  width: 370px;
+  padding: 0;
+}
+.products.wall .caption.hovered {
+  padding-left: 0;
+  padding-right: 0;
+  background-color: rgba(35, 35, 35, 0.6);
+}
+.products.wall .caption-title,
+.products.wall .caption-title a {
+  color: #ffffff;
+}
+.products.wall .rating span.star:before {
+  content: "\f005";
+  color: #a5abb7;
+}
+.products.wall .rating span.star.active:before,
+.products.wall .rating span.star:hover:before,
+.products.wall .rating span.star:hover ~ span.star:before {
+  content: "\f005";
+  color: #ffffff;
+}
+.products.wall .price ins {
+  color: #ffffff;
+  font-size: 15px;
+}
+.products.wall .price del {
+  color: #ffffff;
+  font-size: 14px;
+}
+.products.wall .buttons .btn {
+  color: #ffffff;
+  padding: 7px 9px;
+}
