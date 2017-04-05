@@ -2647,3 +2647,23 @@ if ( ! function_exists( 'bella_customize_so_widgets_status' ) ) :
   }
 endif;
 add_filter( 'siteorigin_widgets_active_widgets', 'bella_customize_so_widgets_status' );
+
+/*trigger the remove review funstion if disabled through theme options*/
+if($bella_options['review_tab'] == 1 ) 
+{
+add_filter( 'woocommerce_product_tabs', 'bella_remove_reviews_tab', 98 );
+ /**
+   * Funtion to remove the review tab from the single product page.
+   *
+   * @since 1.0.0
+   *
+   * @param array $tabs Array of tabs in details page.
+   * @return array Modified array.
+   */
+function bella_remove_reviews_tab($tabs) {
+    unset($tabs['reviews']);
+    return $tabs;
+}
+
+}
+

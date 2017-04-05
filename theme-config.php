@@ -354,6 +354,14 @@ if (!class_exists('Redux_Framework_theme_config')) {
                         'subtitle'  => __('Show cart system on the header ', 'bella'),
                         'default'   => '0',
                     ),
+
+                    array(
+                        'id'        => 'review_tab',
+                        'type'      => 'switch',
+                        'title'     => __('Disable Review', 'bella'),
+                        'subtitle'  => __('Disable the Review Tab in the Product Detail Page ', 'bella'),
+                        'default'   => '0',
+                    ),
                     
                     array(
                         'id'        => 'topbar',
