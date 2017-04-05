@@ -103,5 +103,6 @@
 		 jQuery("#tab-3").addClass( "active" );
 		 jQuery("#tab-3").css( "opacity","1" );
 
+
 	}
 </script>
