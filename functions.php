@@ -2566,7 +2566,7 @@ add_filter('excerpt_more', 'bella_excerpt_more');
  /*Shop*/
 remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb' , 20);
 remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count' , 20);
-WC_Admin_Notices::remove_all_notices();
+//WC_Admin_Notices::remove_all_notices();
 //thumbnails
 if ( function_exists( 'add_theme_support' ) ) { 
         add_theme_support( 'post-thumbnails' );

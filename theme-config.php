@@ -574,13 +574,14 @@ if (!class_exists('Redux_Framework_theme_config')) {
                             'type'      => 'select',
                             'multi'     => false,
                             'title'     => __('Shop page style', 'bella'),
-                            'subtitle'  => __('Choose the style of portfolio', 'bella'),
+                            'subtitle'  => __('Choose the style of shop page', 'bella'),
                             
                             //Must provide key => value pairs for radio options
                             'options'   => array(
                                 'left-sidebar' =>'Shop with left sidebar', 
                                 'right-sidebar' => 'Shop with right sidebar',
-                                'list-view' => 'Shop list view',                           
+                                'list-view' => 'Shop list view',
+                                'full-width' => 'FullWidth Shop Page'                           
 
                             ), 
                             'default'   => array('left-sidebar')
