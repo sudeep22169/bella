@@ -578,10 +578,10 @@ if (!class_exists('Redux_Framework_theme_config')) {
                             
                             //Must provide key => value pairs for radio options
                             'options'   => array(
-                                'left-sidebar' =>'Shop with left sidebar', 
-                                'right-sidebar' => 'Shop with right sidebar',
-                                'list-view' => 'Shop list view',
-                                'full-width' => 'FullWidth Shop Page'                           
+                                'left-sidebar' => __('Shop with left sidebar', 'bella'), 
+                                'right-sidebar' => __('Shop with right sidebar', 'bella'),
+                                'list-view' => __('Shop list view', 'bella'),
+                                'full-width' => __('Full Width Shop Page', 'bella')                           
 
                             ), 
                             'default'   => array('left-sidebar')
