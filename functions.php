@@ -1231,9 +1231,13 @@ function bella_register_required_plugins() {
             'name'      => 'Yith Woocommerce Wishlist - Shop Plugin', 
             'slug'      => 'yith-woocommerce-wishlist', 
             'required'   => true,
-        ), 
-       
-      
+        ),
+
+        array(
+            'name'      => 'One Click Demo Import', 
+            'slug'      => 'one-click-demo-import', 
+            'required'   => true,
+        ),
  
     );
  
@@ -2667,3 +2671,43 @@ function bella_remove_reviews_tab($tabs) {
 
 }
 
+//one click install
+function bella_ocdi_import_files() {
+    return array(
+        array(
+            'import_file_name'             => 'Bella Man',
+            'local_import_file'            => trailingslashit( get_template_directory() ) . 'assets/import/bellaman.xml',
+            'local_import_widget_file'     => trailingslashit( get_template_directory() ) . 'assets/import/bellaman-widgets.wie',
+            'local_import_redux'           => array(
+                array(
+                  'file_path'   => trailingslashit( get_template_directory() ) . 'assets/import/bellaman-redux.json',
+                  'option_name' => 'bella_options',
+                ),
+              ),
+            'local_import_preview_image_file'     => trailingslashit( get_template_directory() ) . 'assets/import/bellaman-preview',
+
+        )
+    );
+}
+add_filter( 'pt-ocdi/import_files', 'bella_ocdi_import_files' );
+
+
+function bella_ocdi_after_import_setup() {
+
+  // Menus to assign after import.
+
+  $main_menu   = get_term_by( 'name', 'Bella_footer_menu', 'nav_menu' );
+  $secondary_menu   = get_term_by( 'name', 'Bella_Secondary_Menu', 'nav_menu' );
+  set_theme_mod( 'nav_menu_locations', array(
+    'primary'   => $main_menu->term_id, 'secondary' => $secondary_menu->term_id,
+  ));
+
+  $homepage = get_page_by_title( 'Homepage 1' );
+
+  if ( $homepage )
+  {
+      update_option( 'page_on_front', $homepage->ID );
+      update_option( 'show_on_front', 'page' );
+  }
+}
+add_action( 'pt-ocdi/after_import', 'bella_ocdi_after_import_setup' );
