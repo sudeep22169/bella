@@ -1348,9 +1348,9 @@ dd{
 
     content:"\f004";
 
-    font-size: 18px;
+    font-size: 15px;
 
-    line-height: 12px
+    line-height: 10px
 
 }
 
@@ -1524,7 +1524,7 @@ a.compare:hover {
 
 .yith-wcwl-add-button > a i{
 
-    margin-right:4px;
+    margin-right:0;
 
 }
 
@@ -1738,7 +1738,7 @@ ins {
 
 .owl-item .yith-wcwl-wishlistexistsbrowse.show a {
 
-    height: 44px;
+    height: 42px;
 
     font-family: "FontAwesome";
 
@@ -1906,7 +1906,9 @@ ins {
 
 }
 
-
+.featured-products-carousel .yith-wcwl-wishlistexistsbrowse.show {
+    margin-left: 0;
+}
 
 /*********view cart button*******/
 
@@ -1969,7 +1971,9 @@ ins {
     margin-left: 59px;
 
 }
-
+.widget .sidebar-products-carousel .owl-item a.btn.btn-theme.btn-theme-transparent.btn-icon-left{
+    margin:0;
+}
 .sidebar-products-carousel .yith-wcwl-wishlistexistsbrowse.show {
 
     float: left;
@@ -1993,7 +1997,10 @@ img.ajax-loading
     z-index:1;
 
 }
-
+.single-product img.ajax-loading{
+    left:-39px !important;
+    top:15px;
+}
 .top-products-carousel img.ajax-loading
 
 {
@@ -2515,3 +2522,7 @@ a.added_to_cart.wc-forward:hover {
     right: 0;
 
 }
+.archive.woocommerce .yith-wcwl-add-to-wishlist .ajax-loading {
+    margin-left: 18px;
+    margin-top: 12px;
+    }
