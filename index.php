@@ -1,6 +1,6 @@
 <?php // Exit if accessed directly
 
-if (!defined('ABSPATH')) {echo '<h1>Forbidden</h1>'; exit();} get_header(); if (is_page_template('bella-page-builder-left-sidebar.php')) echo'rafin';?>
+if (!defined('ABSPATH')) {echo '<h1>Forbidden</h1>'; exit();} ?>
 
 <section class="page-section with-sidebar">
 
