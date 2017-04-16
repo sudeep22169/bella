@@ -336,7 +336,7 @@ if (!class_exists('Redux_Framework_theme_config')) {
                         'id'        => 'header',
                         'type'      => 'switch',
                         'title'     => __('Stick Header', 'bella'),
-                        'subtitle'  => __('Header section doesnot get shrink.', 'bella'),
+                        'subtitle'  => __('Header section does not get shrink.', 'bella'),
                         'default'   => '1',
                     ),
                      array(
@@ -347,21 +347,6 @@ if (!class_exists('Redux_Framework_theme_config')) {
                         'default'   => '1',
                     ),
 
-                    array(
-                        'id'        => 'cart',
-                        'type'      => 'switch',
-                        'title'     => __('Show Cart', 'bella'),
-                        'subtitle'  => __('Show cart system on the header ', 'bella'),
-                        'default'   => '0',
-                    ),
-
-                    array(
-                        'id'        => 'review_tab',
-                        'type'      => 'switch',
-                        'title'     => __('Disable Review', 'bella'),
-                        'subtitle'  => __('Disable the Review Tab in the Product Detail Page ', 'bella'),
-                        'default'   => '0',
-                    ),
                     
                     array(
                         'id'        => 'topbar',
@@ -569,7 +554,47 @@ if (!class_exists('Redux_Framework_theme_config')) {
                             'subtitle'=>_('Display related portfolio items in single portfolio page'),
                             'default' =>1
                             ),  
+                        
                          array(
+                            'id'        => 'signup_title',
+                            'type'      => 'text',
+                            'title'     => __('Information Heading ', 'bella'),
+                            'subtitle'  => __('Text will be displayed in login page.', 'bella'),
+                            'default'   =>__('Signup Today and You will be able to','bella'),
+                        ),  
+                         array(
+                            'id'        => 'signup_text',
+                            'type'      => 'editor',
+                            'title'     => __('Body', 'bella'),
+                            'subtitle'  => __('Write text within li as per default', 'bella'),
+                            'default'   =>__('<li>Online Order Status</li>','bella'),
+                        ),         
+                    
+                )
+            );
+            
+            $this->sections[] = array(
+                'icon'      => 'el el-wrench',
+                'title'     => __('WooCommerce Options', 'bella'),
+                'desc'      => __('<p class="description">All the options related to WooCommerce can be found under this section.</p>', 'bella'),
+                'fields'    => array(
+                     array(
+                        'id'        => 'cart',
+                        'type'      => 'switch',
+                        'title'     => __('Show Cart', 'bella'),
+                        'subtitle'  => __('Show cart system on the header ', 'bella'),
+                        'default'   => '0',
+                    ),
+
+                    array(
+                        'id'        => 'review_tab',
+                        'type'      => 'switch',
+                        'title'     => __('Disable Review', 'bella'),
+                        'subtitle'  => __('Disable the Review Tab in the Product Detail Page ', 'bella'),
+                        'default'   => '0',
+                    ),
+
+                     array(
                             'id'        => 'shop_layout',
                             'type'      => 'select',
                             'multi'     => false,
@@ -661,25 +686,11 @@ if (!class_exists('Redux_Framework_theme_config')) {
                             'title'     => __('Second Slider Button url', 'bella'),
                             'subtitle'  => __('Give a complete valid url for button', 'bella'),
                         ), 
-                         array(
-                            'id'        => 'signup_title',
-                            'type'      => 'text',
-                            'title'     => __('Information Heading ', 'bella'),
-                            'subtitle'  => __('Text will be displayed in login page.', 'bella'),
-                            'default'   =>__('Signup Today and You will be able to','bella'),
-                        ),  
-                         array(
-                            'id'        => 'signup_text',
-                            'type'      => 'editor',
-                            'title'     => __('Body', 'bella'),
-                            'subtitle'  => __('Write text within li as per default', 'bella'),
-                            'default'   =>__('<li>Online Order Status</li>','bella'),
-                        ),         
-                    
+                   
+                   
+                  
                 )
             );
-            
-           
 
             $this->sections[] = array(
                 'icon'      => 'el-icon-bullhorn',
