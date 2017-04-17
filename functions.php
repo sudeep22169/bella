@@ -2711,3 +2711,15 @@ function bella_ocdi_after_import_setup() {
   }
 }
 add_action( 'pt-ocdi/after_import', 'bella_ocdi_after_import_setup' );
+// define the woocommerce_show_admin_notice callback 
+function bella_filter_woocommerce_show_admin_notice( $true, $notice ) { 
+
+    if( $notice == "template_files"){
+      $notice = "";
+    }
+      return $notice;
+ 
+}; 
+         
+// add the filter 
+add_filter( 'woocommerce_show_admin_notice', 'bella_filter_woocommerce_show_admin_notice', 10, 2 ); 
