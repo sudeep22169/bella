@@ -1,7 +1,7 @@
 <?php // Exit if accessed directly
 
 if (!defined('ABSPATH')) {echo '<h1>Forbidden</h1>'; exit();} ?>
-
+<?php get_header();?>
 <section class="page-section with-sidebar">
 
     <div class="container">
