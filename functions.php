@@ -178,7 +178,8 @@ function bella_load_theme_assets() {
     wp_enqueue_style('jquery-ui.min', get_template_directory_uri().'/assets/plugins/jquery-ui/jquery-ui.min.css');
     wp_enqueue_style('jquery.countdown', get_template_directory_uri().'/assets/plugins/countdown/jquery.countdown.css');
     if($bella_options['rtl_css'] != 1 ){
-      wp_enqueue_style('theme-green', get_template_directory_uri().'/assets/css/theme-green-1.css');
+      wp_enqueue_style('theme', get_template_directory_uri().'/assets/css/theme.css');
+
     }
     wp_enqueue_style('main-style', get_template_directory_uri().'/style.css');
      if($bella_options['rtl_css'] == 1 ){
@@ -1176,7 +1177,9 @@ class Walker_Nav_Menu_Edit_Bella extends Walker_Nav_Menu  {
 function bella_body_classes( $classes ) {
     if (!is_page_template('bella-page-builder.php') ) :
     $classes[] = 'multipage';
-    endif;  
+    endif; 
+
+    $classes[] = bella_header_class('header'); 
     return $classes;
 }
 add_filter( 'body_class', 'bella_body_classes' );
@@ -1231,9 +1234,13 @@ function bella_register_required_plugins() {
             'name'      => 'Yith Woocommerce Wishlist - Shop Plugin', 
             'slug'      => 'yith-woocommerce-wishlist', 
             'required'   => true,
-        ), 
-       
-      
+        ),
+
+        array(
+            'name'      => 'One Click Demo Import', 
+            'slug'      => 'one-click-demo-import', 
+            'required'   => true,
+        ),
  
     );
  
@@ -1417,7 +1424,20 @@ function bella_cmb_metaboxes( array $meta_boxes ) {
                 'name'    => __( 'Hide shop banners?', 'bella' ),
                 'id'      => $prefix . 'shop_banner',
                 'type'    => 'checkbox',
-                'desc' => 'Hide shop banners in footer?',
+                'desc' => __('Hide shop banners in footer?', 'bella')
+            ),
+          array(
+                'name'    => __( 'Choose a Header Style', 'bella' ),
+                'id'      => $prefix . 'header_style',
+                'type'    => 'select',
+                'options' => array( 
+                      'default' => __( 'Default Header Style', 'bella' ),
+                      'header1' => __( 'Header Style One', 'bella' ),
+                      'header2' => __( 'Header Style Two', 'bella' ),
+                      'header3' => __( 'Header Style Three', 'bella' ),
+                      'header4' => __( 'Header Style Four', 'bella' ),
+                      'header5' => __( 'Header Style Five', 'bella' )
+                  )
             ),
            
         )
@@ -2666,4 +2686,102 @@ function bella_remove_reviews_tab($tabs) {
 }
 
 }
+
+//one click install
+function bella_ocdi_import_files() {
+    return array(
+        array(
+            'import_file_name'             => 'Bella Man',
+            'local_import_file'            => trailingslashit( get_template_directory() ) . 'assets/import/bellaman.xml',
+            'local_import_widget_file'     => trailingslashit( get_template_directory() ) . 'assets/import/bellaman-widgets.wie',
+            'local_import_redux'           => array(
+                array(
+                  'file_path'   => trailingslashit( get_template_directory() ) . 'assets/import/bellaman-redux.json',
+                  'option_name' => 'bella_options',
+                ),
+              ),
+            'local_import_preview_image_file'     => trailingslashit( get_template_directory() ) . 'assets/import/bellaman-preview',
+
+        )
+    );
+}
+add_filter( 'pt-ocdi/import_files', 'bella_ocdi_import_files' );
+
+
+function bella_ocdi_after_import_setup() {
+
+  // Menus to assign after import.
+
+  $main_menu   = get_term_by( 'name', 'Bella_footer_menu', 'nav_menu' );
+  $secondary_menu   = get_term_by( 'name', 'Bella_Secondary_Menu', 'nav_menu' );
+  set_theme_mod( 'nav_menu_locations', array(
+    'primary'   => $main_menu->term_id, 'secondary' => $secondary_menu->term_id,
+  ));
+
+  $homepage = get_page_by_title( 'Homepage 1' );
+
+  if ( $homepage )
+  {
+      update_option( 'page_on_front', $homepage->ID );
+      update_option( 'show_on_front', 'page' );
+  }
+}
+add_action( 'pt-ocdi/after_import', 'bella_ocdi_after_import_setup' );
+// define the woocommerce_show_admin_notice callback 
+function bella_filter_woocommerce_show_admin_notice( $true, $notice ) { 
+
+    if( $notice == "template_files"){
+      $notice = "";
+    }
+      return $notice;
+ 
+}; 
+         
+// add the filter 
+add_filter( 'woocommerce_show_admin_notice', 'bella_filter_woocommerce_show_admin_notice', 10, 2 ); 
+
+if( !function_exists('bella_header_class') ) {
+function bella_header_class( $class_type ) {
+
+  $header_style = get_post_meta( get_the_Id(),'bella_header_style', true);
+
+switch ($header_style) {
+
+           case 'default':
+               break;
+                
+           case 'header1':
+              $classes['header'] = 'header-style-1';
+              $classes['nav'] = 'header-nav-1';
+               break;
+
+           case 'header2':
+              $classes['header'] = 'header-style-2';
+              $classes['nav'] = 'header-nav-2';
+               break;
+
+           case 'header3':
+              $classes['header'] = 'header-style-3';
+              $classes['nav'] = 'header-nav-3';
+               break;
+
+           case 'header4':
+              $classes['header'] = 'header-style-4';
+              $classes['nav'] = 'header-nav-4';
+               break;
+
+           case 'header5':
+              $classes['header'] = 'header-style-5';
+              $classes['nav'] = 'header-nav-5';
+               break;
+
+           default:
+               break;
+       } 
+       return $classes[$class_type];
+}
+
+}
+
+
 
