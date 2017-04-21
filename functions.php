@@ -178,7 +178,8 @@ function bella_load_theme_assets() {
     wp_enqueue_style('jquery-ui.min', get_template_directory_uri().'/assets/plugins/jquery-ui/jquery-ui.min.css');
     wp_enqueue_style('jquery.countdown', get_template_directory_uri().'/assets/plugins/countdown/jquery.countdown.css');
     if($bella_options['rtl_css'] != 1 ){
-      wp_enqueue_style('theme-green', get_template_directory_uri().'/assets/css/theme-green-1.css');
+      wp_enqueue_style('theme', get_template_directory_uri().'/assets/css/theme.css');
+
     }
     wp_enqueue_style('main-style', get_template_directory_uri().'/style.css');
      if($bella_options['rtl_css'] == 1 ){
@@ -1176,7 +1177,9 @@ class Walker_Nav_Menu_Edit_Bella extends Walker_Nav_Menu  {
 function bella_body_classes( $classes ) {
     if (!is_page_template('bella-page-builder.php') ) :
     $classes[] = 'multipage';
-    endif;  
+    endif; 
+
+    $classes[] = bella_header_class('header'); 
     return $classes;
 }
 add_filter( 'body_class', 'bella_body_classes' );
@@ -1421,7 +1424,20 @@ function bella_cmb_metaboxes( array $meta_boxes ) {
                 'name'    => __( 'Hide shop banners?', 'bella' ),
                 'id'      => $prefix . 'shop_banner',
                 'type'    => 'checkbox',
-                'desc' => 'Hide shop banners in footer?',
+                'desc' => __('Hide shop banners in footer?', 'bella')
+            ),
+          array(
+                'name'    => __( 'Choose a Header Style', 'bella' ),
+                'id'      => $prefix . 'header_style',
+                'type'    => 'select',
+                'options' => array( 
+                      'default' => __( 'Default Header Style', 'bella' ),
+                      'header1' => __( 'Header Style One', 'bella' ),
+                      'header2' => __( 'Header Style Two', 'bella' ),
+                      'header3' => __( 'Header Style Three', 'bella' ),
+                      'header4' => __( 'Header Style Four', 'bella' ),
+                      'header5' => __( 'Header Style Five', 'bella' )
+                  )
             ),
            
         )
@@ -2723,3 +2739,49 @@ function bella_filter_woocommerce_show_admin_notice( $true, $notice ) {
          
 // add the filter 
 add_filter( 'woocommerce_show_admin_notice', 'bella_filter_woocommerce_show_admin_notice', 10, 2 ); 
+
+if( !function_exists('bella_header_class') ) {
+function bella_header_class( $class_type ) {
+
+  $header_style = get_post_meta( get_the_Id(),'bella_header_style', true);
+
+switch ($header_style) {
+
+           case 'default':
+               break;
+                
+           case 'header1':
+              $classes['header'] = 'header-style-1';
+              $classes['nav'] = 'header-nav-1';
+               break;
+
+           case 'header2':
+              $classes['header'] = 'header-style-2';
+              $classes['nav'] = 'header-nav-2';
+               break;
+
+           case 'header3':
+              $classes['header'] = 'header-style-3';
+              $classes['nav'] = 'header-nav-3';
+               break;
+
+           case 'header4':
+              $classes['header'] = 'header-style-4';
+              $classes['nav'] = 'header-nav-4';
+               break;
+
+           case 'header5':
+              $classes['header'] = 'header-style-5';
+              $classes['nav'] = 'header-nav-5';
+               break;
+
+           default:
+               break;
+       } 
+       return $classes[$class_type];
+}
+
+}
+
+
+
