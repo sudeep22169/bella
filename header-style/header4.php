@@ -81,7 +81,7 @@ global $bella_options, $woocommerce;
                                                     <?php $bella_product_title = $_product->get_title();
                                                     $bella_short_product_title = (strlen($bella_product_title) > 28) ? substr($bella_product_title, 0, 25) . '...' : $bella_product_title;
                                                     echo '<h4 class="media-heading item-title"><a href="'.get_permalink($cart_item['product_id']).'">' .$cart_item['quantity'].''.__('x ', 'bella'). apply_filters('woocommerce_cart_widget_product_title', $bella_short_product_title, $_product) . '</a></h4>';?>
-                                                    <?php echo '<p class="item-desc">'.$_product->get_categories(', ','','').'</p>';?>
+                                                    <?php echo '<p class="item-des">'.$_product->get_categories(', ','','').'</p>';?>
                                                 </div>  
                                             </div>
                                         <?php endif; 
