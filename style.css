@@ -1736,12 +1736,13 @@ ins {
 }
 
 .grid .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse.show a ,
+.product-item .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse.show a ,
+.product-item .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse.show a ,
+.owl-item .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse.show a,
 
-.grid .yith-wcwl-wishlistexistsbrowse.show a ,
 
-.owl-item .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse.show a ,
-
-.owl-item .yith-wcwl-wishlistexistsbrowse.show a {
+.owl-item .yith-wcwl-wishlistexistsbrowse.show a,
+.grid .yith-wcwl-wishlistexistsbrowse.show a  {
 
     height: 42px;
 
@@ -1758,7 +1759,22 @@ ins {
     padding-top: 14px;
 
 }
+.product-item .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse.show a,
+.product-item .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse.show a{
+    left:0;
+    padding-right:27px;
+    height: 44px; 
+}
+.owl-item .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse.show a,
 
+
+.owl-item .yith-wcwl-wishlistexistsbrowse.show a{
+        position: absolute;
+    right: 21px;
+    left: -48px;
+    padding: 9px 5px !important;
+    height:34px;
+}
 
 
 .product-single .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse.show a:before,

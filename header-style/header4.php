@@ -65,52 +65,6 @@ global $bella_options, $woocommerce;
                         <a href="#" class="menu-toggle btn btn-theme-transparent"><i class="fa fa-bars"></i></a>
                         <!-- /Mobile menu toggle button -->                   
                     </div>
-<<<<<<< HEAD
-=======
-                    <div class="bella_popup">
-                        <div class="modal fade popup-cart" id="popup-cart" tabindex="-1" role="dialog" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="container">
-                                    <div class="cart-items">
-                                        <div class="cart-items-inner">
-                                            <?php  if (sizeof($woocommerce->cart->cart_contents)>0) : foreach ($woocommerce->cart->cart_contents as $cart_item_key => $cart_item) :
-                                            $_product = $cart_item['data'];                                          
-                                            if ($_product->exists() && $cart_item['quantity']>0) : ?>
-                                            <div class="media">
-                                                <?php echo '<a class="pull-left" href="'.get_permalink($cart_item['product_id']).'">' . $_product->get_image(array(50,50)).'</a>';
-                                                echo '  <p class="pull-right item-price">'.woocommerce_price($_product->get_price()).'</p>';?>
-                                                <div class="media-body">
-                                                    <?php $bella_product_title = $_product->get_title();
-                                                    $bella_short_product_title = (strlen($bella_product_title) > 28) ? substr($bella_product_title, 0, 25) . '...' : $bella_product_title;
-                                                    echo '<h4 class="media-heading item-title"><a href="'.get_permalink($cart_item['product_id']).'">' .$cart_item['quantity'].''.__('x ', 'bella'). apply_filters('woocommerce_cart_widget_product_title', $bella_short_product_title, $_product) . '</a></h4>';?>
-                                                    <?php echo '<p class="item-des">'.$_product->get_categories(', ','','').'</p>';?>
-                                                </div>  
-                                            </div>
-                                        <?php endif; 
-                                        endforeach;?>                                         
-                                    <?php else: echo __('No products in the cart.','bella'); endif;?>  
-                                        <div class="media">
-                                            <p class="pull-right item-price"><?php echo $woocommerce->cart->get_cart_total(); ?></p>
-                                            <div class="media-body">
-                                                <h4 class="media-heading item-title summary"><?php _e('Subtotal', 'bella'); ?></h4>
-                                            </div>
-                                        </div>                                     
-                                        <div class="media">
-                                            <div class="media-body">
-                                                <div>
-                                                    <a href="#" class="btn btn-theme btn-theme-dark" data-dismiss="modal"><?php _e('Close', 'bella'); ?></a>
-                                                    <a href="<?php echo esc_url( $woocommerce->cart->get_checkout_url() ); ?>" class="btn btn-theme btn-theme-transparent btn-call-checkout"><?php _e(' Checkout', 'bella'); ?></a>         
-                                                </div>
-                                            </div>
-                                        </div>  
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        </div>
-                    
-                    </div>
->>>>>>> 712e377164522621678220609dbfff6bd663155d
             <!-- Header shopping cart -->
         <?php endif; ?>
     </div>
