@@ -179,6 +179,8 @@ function bella_load_theme_assets() {
     wp_enqueue_style('jquery.countdown', get_template_directory_uri().'/assets/plugins/countdown/jquery.countdown.css');
     if($bella_options['rtl_css'] != 1 ){
       wp_enqueue_style('theme', get_template_directory_uri().'/assets/css/theme.css');
+      wp_enqueue_style('theme-green-1', get_template_directory_uri().'/assets/css/theme-green-1.css');
+
 
     }
     wp_enqueue_style('main-style', get_template_directory_uri().'/style.css');
@@ -2639,6 +2641,7 @@ if ( class_exists( 'SiteOrigin_Widget' ) ) {
     'spacer',
     'testimonials',
     'title',
+    'product-category'
   );
   $template_dir = get_template_directory();
   foreach ( $theme_widgets as $widget ) {
@@ -2782,6 +2785,3 @@ switch ($header_style) {
 }
 
 }
-
-
-
