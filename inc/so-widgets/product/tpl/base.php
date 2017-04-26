@@ -7,8 +7,7 @@
         		'ignore_sticky_posts'=>true
 
     		);
-        	$looprecents = get_posts( $argsss );
-        	var_dump($looprecents); die();
+        	$looprecents = new WP_QUERY( $argsss );
 			?>
         <?php if ( $looprecents->have_posts() ) : setup_postdata();
 			while ( $looprecents->have_posts() ) : $looprecents->the_post();
