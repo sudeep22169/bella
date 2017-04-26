@@ -3,11 +3,9 @@
 	     <?php
         	$argsss = array(
         		'post_type'=>'product',
-        		'posts_per_page'=>$instance['num'],
-        		'ignore_sticky_posts'=>true
-
+        		'posts_per_page'=>3
     		);
-        	$looprecents = new WP_QUERY( $argsss );
+        	$looprecents = new WP_Query( $argsss );
 			?>
         <?php if ( $looprecents->have_posts() ) : setup_postdata();
 			while ( $looprecents->have_posts() ) : $looprecents->the_post();
