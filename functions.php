@@ -1929,7 +1929,7 @@ class WP_Widget_Archive_Bella extends WP_Widget {
                                         <a href="<?php the_permalink(); ?>"><?php get_the_title() ? the_title() : the_ID(); ?></a>
                                     </li>
                                 <?php endwhile;?>
-                            <?php endif;?>
+                            <?php endif; wp_reset_postdata();?>
                         </ul>
                     </li>
                     <?php $year_prev = $year_current;
@@ -2641,7 +2641,8 @@ if ( class_exists( 'SiteOrigin_Widget' ) ) {
     'spacer',
     'testimonials',
     'title',
-    'product-category'
+    'product-category',
+    'topsellers'
   );
   $template_dir = get_template_directory();
   foreach ( $theme_widgets as $widget ) {

@@ -11,11 +11,10 @@
 				array(
 					'taxonomy' => 'product_cat',
 					'field'    => 'term_id',
-					'terms'    => array($instance['product_categories'])
+					'terms'    => $instance['product_categories']
 				),
 			),
-        );
-       // $query_args['meta_query'] = WC()->query->get_meta_query();
+        ); 
        
 		$loop = new WP_Query( $query_args );?>
         <?php if ( $loop->have_posts() ) :

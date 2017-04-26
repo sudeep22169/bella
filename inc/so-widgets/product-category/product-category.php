@@ -26,7 +26,7 @@ class SiteOrigin_Widget_Product_Category_Widget extends SiteOrigin_Widget {
 					'product_categories' => array(
                     'type' => 'select',
                     'label' => __('Select a product category and filter on.', 'livemesh-so-widgets'),
-                    'options'=>add_bundle_groups()
+                    'options'=>bella_get_woocommerce_product_categories()
                 ),
 					
 				
@@ -49,7 +49,7 @@ class SiteOrigin_Widget_Product_Category_Widget extends SiteOrigin_Widget {
 siteorigin_widget_register('sow-product-category', __FILE__,'SiteOrigin_Widget_Product_Category_Widget');
 //add_filter( 'custom_init', 'bella_get_product_categories',10,1);
 
-function add_bundle_groups(){
+function bella_get_woocommerce_product_categories(){
     $map = array();
     global $wpdb;
     $results=$wpdb->get_results("SELECT tax.term_id,term.name from ".$wpdb->prefix."term_taxonomy as tax join ".$wpdb->prefix."terms as term where tax.taxonomy='product_cat' and tax.term_id=term.term_id",ARRAY_A);

@@ -39,7 +39,7 @@ if (!defined('ABSPATH')) {echo '<h1>Forbidden</h1>'; exit();} get_header(); ?>
 
                 		<?php get_template_part('partials/nothing-found'); ?>
 
-            	<?php endif; ?>
+            	<?php endif; wp_reset_query(); ?>
 
             </div>
 
