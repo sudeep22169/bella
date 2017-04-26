@@ -1765,13 +1765,19 @@ ins {
     padding-right:27px;
     height: 44px; 
 }
-.so-widget-sow-productcarousel .owl-item .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse.show a,
-.so-widget-sow-productcarousel .owl-item .yith-wcwl-wishlistexistsbrowse.show a{
+.so-widget-sow-productcarousel .owl-item .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse.show a{
     position: absolute;
     right: 21px;
     left: -48px;
     padding: 9px 5px !important;
     height:34px;
+}
+.so-widget-sow-productcarousel .owl-item .yith-wcwl-wishlistexistsbrowse.show a{    
+    position: absolute;
+    right: 41px;
+    left: -48px;
+    padding: 9px 5px !important;
+    height: 33px;
 }
 
 
