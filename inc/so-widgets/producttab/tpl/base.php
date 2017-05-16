@@ -10,8 +10,23 @@
 		<div class="tab-pane fade" id="tab-1">
 			<div class="row">
 				<?php
-				$query='post_type=product&posts_per_page='.$instance['num'].'&meta_key=_featured&meta_value=yes';
-				$query = siteorigin_widget_post_selector_process_query( $query);
+				// $query='post_type=product&posts_per_page='.$instance['num'].'&meta_key=_featured&meta_value=yes';
+				// $query = siteorigin_widget_post_selector_process_query( $query);
+				$query = array(
+				    'post_type' => array(
+				        'product', 
+				        'product_variation'
+				    ),
+				    'posts_per_page' => $instance['num'],
+				    'post_status'    => 'publish',
+				    'tax_query' => array(
+				        array(
+				            'taxonomy' => 'product_visibility',
+				            'field'    => 'slug',
+				            'terms'    => 'featured'
+				        )
+				    ),
+				);
 				$loop = new WP_Query( $query );
 				?>
 				<?php

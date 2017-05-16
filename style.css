@@ -2551,3 +2551,10 @@ a.added_to_cart.wc-forward:hover {
     margin-left: 18px;
     margin-top: 12px;
     }
+
+  /*by sudeep */
+
+  a.sale {
+    background-color: #00b16a;
+    color: #ffffff;
+}
