@@ -34,7 +34,7 @@
 					while ( $loop->have_posts() ) : $loop->the_post();
 					?>
 					<div class="product-item col-md-3 col-sm-6">
-						<?php wc_get_template_part( 'content', 'product' ); ?>
+						<?php wc_get_template_part( 'content', 'bella' ); ?>
 					</div><!--/.products-->
 					<?php
 					endwhile;
@@ -59,7 +59,7 @@
 					while ( $loop->have_posts() ) : $loop->the_post();
 					?>
 					<div class="product-item col-md-3 col-sm-6">
-						<?php wc_get_template_part( 'content', 'product' ); ?>
+						<?php wc_get_template_part( 'content', 'bella' ); ?>
 					</div><!--/.products-->
 					<?php
 					endwhile;
@@ -84,7 +84,7 @@
 					while ( $loop->have_posts() ) : $loop->the_post();
 					?>
 					<div class="product-item col-md-3 col-sm-6">
-						<?php wc_get_template_part( 'content', 'product' ); ?>
+						<?php wc_get_template_part( 'content', 'bella' ); ?>
 					</div><!--/.products-->
 					<?php
 					endwhile;

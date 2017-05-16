@@ -30,6 +30,8 @@ function bella_setup() {
     add_editor_style(array('assets/css/editor-style.css'));
     // Load plugin checker
     require(get_template_directory() . '/inc/plugin-activation.php');
+    require get_template_directory() . '/inc/aquaresizer.php';
+    
     //Include all post types
     require(get_template_directory() . '/inc/metabox.php');
     add_filter('add_to_cart_fragments' , 'woocommerce_header_add_to_cart_fragment' );
