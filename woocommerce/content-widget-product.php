@@ -49,9 +49,9 @@ global $product; ?>
         <div class="buttons">
              <?php if (is_plugin_active('yith-woocommerce-wishlist/init.php')) {              
                         echo  do_shortcode('[yith_wcwl_add_to_wishlist]');  
-                           }    
+                           } 
             ?>
-             <a data-product_id="<?php echo $product->id;?>" data-product_sku="<?php echo $product->get_sku();?>" data-quantity="%s" class="btn btn-theme btn-theme-transparent btn-icon-left" href="<?php echo $product->add_to_cart_url()?>"><i class="fa fa-shopping-cart"></i><?php _e('Add to Cart','bella')?></a>
+             <a data-product_id="<?php echo $product->id;?>" data-product_sku="<?php echo $product->get_sku();?>" data-quantity="%s" class="btn btn-theme btn-theme-transparent btn-icon-left" href="<?php echo $product->add_to_cart_url()?>"><i class="fa fa-shopping-cart"></i><?php echo $product->add_to_cart_text();?></a>
             <?php if (is_plugin_active('yith-woocommerce-compare/init.php')) {
                 echo do_shortcode('[yith_compare_button]');
                 
