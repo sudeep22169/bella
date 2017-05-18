@@ -2440,11 +2440,20 @@ class WP_Widget_Hot_Deals_Bella extends WP_Widget {
             echo $args['before_title'] ?><span><?php echo esc_attr($instance['title']);?> </span><?php echo $args['after_title'];
          } 
         $args = array(
-                    'post_type'      => 'product',
-                    'posts_per_page' => $number,
-                    'meta_key' => '_featured',
-                    'meta_value' => 'yes',
-                );        
+            'post_type' => array(
+                'product', 
+                'product_variation'
+            ),
+            'posts_per_page' => $number,
+            'post_status'    => 'publish',
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'product_visibility',
+                    'field'    => 'slug',
+                    'terms'    => 'featured'
+                )
+            ),
+        );             
         $r = new WP_Query( $args ); 
         if ( $r->have_posts() ) {            
                 if($number!=1):
