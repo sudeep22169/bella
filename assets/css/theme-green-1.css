@@ -7591,6 +7591,7 @@ input[type=checkbox] {
   transition-duration: .4s;
 
   position: relative;
+  height: 100%;
 
 }
 
