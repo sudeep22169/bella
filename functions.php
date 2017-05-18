@@ -1636,7 +1636,28 @@ function bella_breadcrumbs() {
       if ($thisCat->parent != 0) echo get_category_parents($thisCat->parent, TRUE, ' ' . $delimiter . ' ');
       echo $before . 'Archive by category "' . single_cat_title('', false) . '"' . $after;
  
-    } elseif ( is_search() ) {
+    } elseif ( is_tax() ) {
+      $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
+      // Create a list of all the term's parents
+      $parent = $term->parent;
+      while ($parent):
+      $parents[] = $parent;
+      $new_parent = get_term_by( 'id', $parent, get_query_var( 'taxonomy' ));
+      $parent = $new_parent->parent;
+      endwhile;
+      if(!empty($parents)):
+      $parents = array_reverse($parents);
+      // For each parent, create a breadcrumb item
+      foreach ($parents as $parent):
+      $item = get_term_by( 'id', $parent, get_query_var( 'taxonomy' ));
+      $url = get_bloginfo('url').'/'.$item->taxonomy.'/'.$item->slug;
+      echo '<li class="no-delimeter"><a href="'.$url.'">'.$item->name.'</a> ' . $delimiter . ' </li>';
+      endforeach;
+      endif;
+      // Display the current term in the breadcrumb
+      echo $before . $term->name. $after;
+ 
+    }elseif ( is_search() ) {
       echo $before . 'Search results for "' . get_search_query() . '"' . $after;
  
     } elseif ( is_day() ) {

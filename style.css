@@ -2558,3 +2558,7 @@ a.added_to_cart.wc-forward:hover {
     background-color: #00b16a;
     color: #ffffff;
 }
+.page-section.breadcrumbs .breadcrumb > li + li.no-delimeter:before{
+    content: '';
+    padding:0;
+}
